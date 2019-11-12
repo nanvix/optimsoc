@@ -1147,17 +1147,21 @@ module mor1kx_ctrl_cappuccino
             .spr_addr_i         (spr_addr),               // Templated
             .spr_dat_i          (spr_write_dat),          // Templated
             .spr_sys_mode_i     (spr_sr[`OR1K_SPR_SR_SM]),
-            .pcu_event_load_i   (execute_op_lsu_load_i & padv_execute_o),
-            .pcu_event_store_i  (execute_op_lsu_store_i & padv_execute_o),
-            .pcu_event_ifetch_i (fetch_valid_i),
-            .pcu_event_dcache_miss_i(dchache_miss),
-            .pcu_event_icache_miss_i(!icache_hit_i & !waiting_for_fetch),
-            .pcu_event_ifetch_stall_i(!padv_fetch_o),
-            .pcu_event_lsu_stall_i(!ctrl_valid_i),
-            .pcu_event_brn_stall_i(branch_mispredict_i & padv_decode_o),
-            .pcu_event_dtlb_miss_i(except_dtlb_miss_i),
-            .pcu_event_itlb_miss_i(except_itlb_miss_i),
-            .pcu_event_datadep_stall_i(execute_waiting)
+
+            // Used Events (working)
+            .pcu_event_load_i         ((execute_op_lsu_load_i & padv_execute_o) | (execute_op_lsu_store_i & padv_execute_o)), // D-Cache Access (Custom)
+            .pcu_event_store_i        (branch_mispredict_i & padv_decode_o),                                                  // Branch Stall (Custom)
+            .pcu_event_ifetch_i       (icache_hit_i),                                                                         // I-Cache Hit (Custom)
+            .pcu_event_dcache_miss_i  (dchache_miss),                                                                         // D-Cache Miss
+            .pcu_event_icache_miss_i  (!icache_hit_i & !waiting_for_fetch),                                                   // I-Cache Miss
+            .pcu_event_ifetch_stall_i (!padv_fetch_o),                                                                        // I-Fetch Stall
+            .pcu_event_lsu_stall_i    (!ctrl_valid_i),                                                                        // LSU Stall
+
+            // Unused Events (not working)
+            .pcu_event_brn_stall_i     (branch_mispredict_i & padv_decode_o),                                                 // Branch Stall
+            .pcu_event_dtlb_miss_i     (except_dtlb_miss_i),                                                                  // D-TLB Miss
+            .pcu_event_itlb_miss_i     (except_itlb_miss_i),                                                                  // I-TLB Miss
+            .pcu_event_datadep_stall_i (execute_waiting)                                                                      // Register Dependency Stall
             );
       end
       else begin
