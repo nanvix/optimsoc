@@ -295,7 +295,7 @@ module compute_tile_dm
    // Kernel Core I-Cache
    localparam CORE0_OPTION_ICACHE_BLOCK_WIDTH = 5;
    localparam CORE0_OPTION_ICACHE_WAYS = 2;
-   localparam CORE0_OPTION_ICACHE_SET_WIDTH = 4;
+   localparam CORE0_OPTION_ICACHE_SET_WIDTH = 8;
    localparam CORE0_FEATURE_IMMU = "ENABLED";
    localparam CORE0_OPTION_IMMU_SET_WIDTH = 6;
    localparam CORE0_OPTION_IMMU_WAYS = 1;

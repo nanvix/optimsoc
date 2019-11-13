@@ -588,43 +588,43 @@ def build_examples_fpga(options, env):
     exdist = os.path.join(dist, "examples", "fpga")
 
     examples = [
-      { "name": "compute_tile_nexys4ddr",
-        "outname": "compute_tile_nexys4ddr_singlecore",
-        "path": "nexys4ddr/compute_tile",
-        "artifact": [
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-        ],
-        "options": "--NUM_CORES 1",
-      },
-      { "name": "compute_tile_nexys4ddr",
-        "outname": "compute_tile_nexys4ddr_quadcore",
-        "path": "nexys4ddr/compute_tile",
-        "artifact":  [
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-        ],
-        "options": "--NUM_CORES 4",
-      },
-      { "name": "compute_tile_nexys4ddr",
-        "outname": "compute_tile_nexys4ddr_pentacore",
-        "path": "nexys4ddr/compute_tile",
-        "artifact":  [
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
-        ],
-        "options": "--NUM_CORES 5 --ENABLE_PERFCOUNTERS 1",
-      },
-# Currently too large to fit into the Nexys 4 DDR FPGA
-#      { "name": "system_2x2_cccc_nexys4ddr",
-#        "outname": "system_2x2_cccc_nexys4ddr",
-#        "path": "nexys4ddr/system_2x2_cccc",
+#      { "name": "compute_tile_nexys4ddr",
+#        "outname": "compute_tile_nexys4ddr_singlecore",
+#        "path": "nexys4ddr/compute_tile",
 #        "artifact": [
-#          "build/optimsoc_examples_system_2x2_cccc_nexys4ddr_0/bld-vivado/optimsoc_examples_system_2x2_cccc_nexys4ddr_0.bit",
-#          "build/optimsoc_examples_system_2x2_cccc_nexys4ddr_0/synth-vivado/optimsoc_examples_system_2x2_cccc_nexys4ddr_0.bit",
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
 #        ],
-#        "options": "",
+#        "options": "--NUM_CORES 1",
 #      },
+#      { "name": "compute_tile_nexys4ddr",
+#        "outname": "compute_tile_nexys4ddr_quadcore",
+#        "path": "nexys4ddr/compute_tile",
+#        "artifact":  [
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
+#        ],
+#        "options": "--NUM_CORES 4",
+#      },
+#      { "name": "compute_tile_nexys4ddr",
+#        "outname": "compute_tile_nexys4ddr_pentacore",
+#        "path": "nexys4ddr/compute_tile",
+#        "artifact":  [
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/bld-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
+#          "build/optimsoc_examples_compute_tile_nexys4ddr_0/synth-vivado/optimsoc_examples_compute_tile_nexys4ddr_0.bit",
+#        ],
+#        "options": "--NUM_CORES 5 --ENABLE_PERFCOUNTERS 1",
+#      },
+# Currently too large to fit into the Nexys 4 DDR FPGA
+      { "name": "system_2x2_cccc_nexys4ddr",
+        "outname": "system_2x2_cccc_nexys4ddr",
+        "path": "nexys4ddr/system_2x2_cccc",
+        "artifact": [
+          "build/optimsoc_examples_system_2x2_cccc_nexys4ddr_0/bld-vivado/optimsoc_examples_system_2x2_cccc_nexys4ddr_0.bit",
+          "build/optimsoc_examples_system_2x2_cccc_nexys4ddr_0/synth-vivado/optimsoc_examples_system_2x2_cccc_nexys4ddr_0.bit",
+        ],
+        "options": "--NUM_CORES 2",
+      },
     ]
 
     for ex in examples:

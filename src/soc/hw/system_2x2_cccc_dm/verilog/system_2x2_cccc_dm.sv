@@ -123,7 +123,7 @@ module system_2x2_cccc_dm(
 
    genvar i;
    generate
-      for (i=0; i<4; i=i+1) begin : gen_ct
+      for (i=0; i<CONFIG.NUMTILES; i=i+1) begin : gen_ct
          compute_tile_dm
             #(.CONFIG (CONFIG),
               .ID(i),
