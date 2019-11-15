@@ -624,6 +624,15 @@ def build_examples_fpga(options, env):
         ],
         "options": "",
       },
+      { "name": "bluedragon_2x2_nexys4ddr",
+        "outname": "bluedragon_2x2_nexys4ddr",
+        "path": "nexys4ddr/bluedragon_2x2",
+        "artifact": [
+          "build/optimsoc_examples_bluedragon_2x2_nexys4ddr_0/bld-vivado/optimsoc_examples_bluedragon_2x2_nexys4ddr_0.bit",
+          "build/optimsoc_examples_bluedragon_2x2_nexys4ddr_0/synth-vivado/optimsoc_examples_bluedragon_2x2_nexys4ddr_0.bit",
+        ],
+        "options": "--NUM_CORES 3",
+      },
     ]
 
     for ex in examples:

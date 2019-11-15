@@ -1,0 +1,47 @@
+CAPI=1
+[main]
+name = optimsoc:examples:bluedragon_2x2_nexys4ddr
+description = "Xilinx/Digilent Nexys4 DDR board with 2x2 system"
+depend =
+  wallento:boards:nexys4ddr
+  wallento:svchannels:nasti
+  wallento:svchannels:wishbone
+  wallento:wb2axi:wb2axi
+  optimsoc:system:2x2_cccc_dm
+  glip:backend:uart
+  optimsoc:examples:bluedragon_2x2_nexys4ddr-xilinx_axi_interconnect_4to1
+  optimsoc:examples:bluedragon_2x2_nexys4ddr-xilinx_axi_register_slice
+
+simulators = xsim
+backend = vivado
+
+[fileset rtl_files]
+file_type = systemVerilogSource
+usage = sim synth
+files =
+  rtl/verilog/bluedragon_2x2_nexys4.sv
+
+[fileset testbench]
+file_type = systemVerilogSource
+usage = sim
+files =
+  tbench/verilog/tb_bluedragon_2x2_nexys4ddr.sv
+
+[xsim]
+top_module = tb_bluedragon_2x2_nexys4ddr
+part = xc7a100tcsg324-1
+
+[vivado]
+top_module = bluedragon_2x2_nexys4
+part = "xc7a100tcsg324-1"
+hw_device = xc7a100t_0
+
+[parameter NUM_CORES]
+datatype = int
+paramtype = vlogparam
+scope = public
+
+[parameter ENABLE_VCHANNELS]
+datatype = int
+paramtype = vlogparam
+scope = public
