@@ -28,6 +28,8 @@ targets:
     parameters:
       - USE_DEBUG
       - NUM_CORES
+      - ENABLE_PERFCOUNTERS
+      - ENABLE_FPU
     default_tool: verilator
     filesets:
       - files_rtl
@@ -77,6 +79,16 @@ parameters:
     scope: public
     default: 1
     description: Specify the number of CPU cores per tile
+  ENABLE_PERFCOUNTERS:
+    datatype: bool
+    paramtype: vlogparam
+    scope: public
+    description: Enable performance counters
+  ENABLE_FPU:
+    datatype: bool
+    paramtype: vlogparam
+    scope: public
+    description: Enable FPU
   vcd:
     datatype: bool
     paramtype: cmdlinearg

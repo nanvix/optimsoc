@@ -50,6 +50,8 @@ module tb_compute_tile
    // Simulation parameters
    parameter USE_DEBUG = 0;
    parameter integer NUM_CORES = 1;
+   parameter integer ENABLE_FPU = 0;
+   parameter integer ENABLE_PERFCOUNTERS = 0;
    parameter integer LMEM_SIZE = 128*1024*1024;
 
    localparam base_config_t
@@ -70,8 +72,8 @@ module tb_compute_tile
                       ENABLE_PGAS: 0,
                       PGAS_BASE: 0,
                       PGAS_SIZE: 0,
-                      CORE_ENABLE_FPU: 0,
-                      CORE_ENABLE_PERFCOUNTERS: 0,
+                      CORE_ENABLE_FPU: ENABLE_FPU,
+                      CORE_ENABLE_PERFCOUNTERS: ENABLE_PERFCOUNTERS,
                       NA_ENABLE_MPSIMPLE: 1,
                       NA_ENABLE_DMA: 1,
                       NA_DMA_GENIRQ: 1,
