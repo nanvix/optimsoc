@@ -294,8 +294,8 @@ module compute_tile_dm
    localparam CORE0_FEATURE_PIC = "ENABLED";
    // Kernel Core I-Cache
    localparam CORE0_OPTION_ICACHE_BLOCK_WIDTH = 5;
-   localparam CORE0_OPTION_ICACHE_WAYS = 2;
-   localparam CORE0_OPTION_ICACHE_SET_WIDTH = 4;
+   localparam CORE0_OPTION_ICACHE_WAYS = 1;
+   localparam CORE0_OPTION_ICACHE_SET_WIDTH = 8;
    localparam CORE0_FEATURE_IMMU = "ENABLED";
    localparam CORE0_OPTION_IMMU_SET_WIDTH = 6;
    localparam CORE0_OPTION_IMMU_WAYS = 1;
@@ -309,9 +309,9 @@ module compute_tile_dm
    localparam CORE0_OPTION_DMMU_SET_WIDTH	= 6;
    localparam CORE0_OPTION_DMMU_WAYS = 1;
    // Kernel Core ALU
-   localparam CORE0_FEATURE_MULTIPLIER = "THREESTAGE";
-   localparam CORE0_FEATURE_DIVIDER = "SERIAL";
-   localparam CORE0_OPTION_SHIFTER = "BARREL";
+   localparam CORE0_FEATURE_MULTIPLIER = "NONE";
+   localparam CORE0_FEATURE_DIVIDER = "NONE";
+   localparam CORE0_OPTION_SHIFTER = "SERIAL";
 
    generate
       for (c = 0; c < CONFIG.CORES_PER_TILE; c = c + 1) begin : gen_cores
