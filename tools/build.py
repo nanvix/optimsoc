@@ -530,6 +530,14 @@ def build_examples_sim(options, env):
           "build/optimsoc_examples_compute_tile_sim_0/bld-verilator/Vtb_compute_tile",
         ],
         "options": "--NUM_CORES 4 --USE_DEBUG" },
+      { "name": "compute_tile_sim",
+        "outname": "compute_tile_sim_pentacore_debug",
+        "path": "compute_tile",
+        "artifact": [
+          "build/optimsoc_examples_compute_tile_sim_0/sim-verilator/Vtb_compute_tile",
+          "build/optimsoc_examples_compute_tile_sim_0/bld-verilator/Vtb_compute_tile",
+        ],
+        "options": "--NUM_CORES 5 --ENABLE_PERFCOUNTERS 1 --USE_DEBUG" },
 
       { "name": "system_2x2_cccc_sim",
         "outname": "system_2x2_cccc_sim_dualcore",
