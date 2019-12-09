@@ -52,6 +52,8 @@ targets:
     parameters:
       - USE_DEBUG
       - NUM_CORES
+      - ENABLE_PERFCOUNTERS
+      - ENABLE_FPU
       - vcd
     default_tool: verilator
     filesets:
@@ -80,14 +82,16 @@ parameters:
     default: 1
     description: Specify the number of CPU cores per tile
   ENABLE_PERFCOUNTERS:
-    datatype: bool
+    datatype: int
     paramtype: vlogparam
     scope: public
+    default: 0
     description: Enable performance counters
   ENABLE_FPU:
-    datatype: bool
+    datatype: int
     paramtype: vlogparam
     scope: public
+    default: 0
     description: Enable FPU
   vcd:
     datatype: bool
